@@ -1,0 +1,70 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkimwoh27dhtk"]
+
+[ext_resource type="Script" uid="uid://c7de3bgxctj5n" path="res://UI/tool_tip.gd" id="1_8543q"]
+[ext_resource type="Texture2D" uid="uid://cxbecxir8p1ss" path="res://Art/loose_sprite/Cursors.zh-CN.png" id="1_bg73i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddw1a"]
+atlas = ExtResource("1_bg73i")
+region = Rect2(293, 360, 24, 24)
+
+[node name="ToolTip" type="Control"]
+z_index = 5
+custom_minimum_size = Vector2(150, 90)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 150.0
+offset_bottom = 90.0
+size_flags_horizontal = 2
+size_flags_vertical = 3
+script = ExtResource("1_8543q")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(75, 45)
+layout_mode = 0
+offset_right = 30.0
+offset_bottom = 22.0
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_ddw1a")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(134, 27)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "123"
+autowrap_mode = 3
+
+[node name="VSplitContainer" type="VSplitContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Description" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(134, 54)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "可以放置"
+autowrap_mode = 3

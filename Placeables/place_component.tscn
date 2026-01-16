@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://5mtyswld1lw1"]
+
+[ext_resource type="Script" uid="uid://byrs40n8g33ny" path="res://Placeables/place_component.gd" id="1_dic44"]
+
+[node name="PlaceComponent" type="Node2D"]
+script = ExtResource("1_dic44")

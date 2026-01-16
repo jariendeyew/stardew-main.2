@@ -1,0 +1,201 @@
+[gd_scene load_steps=33 format=3 uid="uid://3xejacmgjon6"]
+
+[ext_resource type="Texture2D" uid="uid://d5pvy0mjih63" path="res://Art/loose_sprite/stardewPanorama.png" id="1_1nim0"]
+[ext_resource type="Script" uid="uid://bvwkew7oy8s0d" path="res://UI/game_start_menu.gd" id="1_f4xs6"]
+[ext_resource type="Texture2D" uid="uid://bmotfwvxsfpch" path="res://Art/mini_games/Clouds.png" id="2_7s408"]
+[ext_resource type="Shader" uid="uid://cgjwsixnercxa" path="res://Shader/cloud.gdshader" id="2_gdblg"]
+[ext_resource type="AudioStream" uid="uid://c6jux1yxhkkrq" path="res://AudioSystem/Scott Lloyd Shelly - Terraria Soundtrack Volume 2 - 04 Alternate Day.mp3" id="2_kaesu"]
+[ext_resource type="Texture2D" uid="uid://c7f0buu2ookp1" path="res://Art/mini_games/TitleButtons.zh-CN.png" id="2_t87tb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kaesu"]
+shader = ExtResource("2_gdblg")
+shader_parameter/offset = Vector2(0.01, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yggor"]
+atlas = ExtResource("2_7s408")
+region = Rect2(0, 335, 511, 206)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4xs6"]
+atlas = ExtResource("2_t87tb")
+region = Rect2(0, 0, 400, 187)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7s408"]
+atlas = ExtResource("2_t87tb")
+region = Rect2(0, 188, 74, 57)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gdblg"]
+load_path = "res://.godot/imported/TitleButtons.zh-CN.png-9990e189b48fa25236a2cc7f835e6704.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kaesu"]
+atlas = SubResource("CompressedTexture2D_gdblg")
+region = Rect2(0, 187, 74, 58)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a2tss"]
+load_path = "res://.godot/imported/TitleButtons.zh-CN.png-9990e189b48fa25236a2cc7f835e6704.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcijo"]
+atlas = SubResource("CompressedTexture2D_a2tss")
+region = Rect2(0, 245, 74, 58)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_t87tb"]
+load_path = "res://.godot/imported/TitleButtons.zh-CN.png-9990e189b48fa25236a2cc7f835e6704.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdblg"]
+atlas = SubResource("CompressedTexture2D_t87tb")
+region = Rect2(74, 187, 74, 58)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kaesu"]
+load_path = "res://.godot/imported/TitleButtons.zh-CN.png-9990e189b48fa25236a2cc7f835e6704.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2tss"]
+atlas = SubResource("CompressedTexture2D_kaesu")
+region = Rect2(74, 187, 74, 58)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hcijo"]
+load_path = "res://.godot/imported/TitleButtons.zh-CN.png-9990e189b48fa25236a2cc7f835e6704.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nge5a"]
+atlas = SubResource("CompressedTexture2D_hcijo")
+region = Rect2(74, 245, 74, 58)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yggor"]
+load_path = "res://.godot/imported/TitleButtons.zh-CN.png-9990e189b48fa25236a2cc7f835e6704.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ong1n"]
+atlas = SubResource("CompressedTexture2D_yggor")
+region = Rect2(148, 187, 74, 58)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ndr3a"]
+load_path = "res://.godot/imported/TitleButtons.zh-CN.png-9990e189b48fa25236a2cc7f835e6704.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4bk1"]
+atlas = SubResource("CompressedTexture2D_ndr3a")
+region = Rect2(148, 187, 74, 58)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0actx"]
+load_path = "res://.godot/imported/TitleButtons.zh-CN.png-9990e189b48fa25236a2cc7f835e6704.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0q4f"]
+atlas = SubResource("CompressedTexture2D_0actx")
+region = Rect2(148, 245, 74, 58)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0jwoh"]
+load_path = "res://.godot/imported/TitleButtons.zh-CN.png-9990e189b48fa25236a2cc7f835e6704.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qsuw"]
+atlas = SubResource("CompressedTexture2D_0jwoh")
+region = Rect2(222, 187, 74, 58)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_13jv5"]
+load_path = "res://.godot/imported/TitleButtons.zh-CN.png-9990e189b48fa25236a2cc7f835e6704.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kqso"]
+atlas = SubResource("CompressedTexture2D_13jv5")
+region = Rect2(222, 187, 74, 58)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vjp8g"]
+load_path = "res://.godot/imported/TitleButtons.zh-CN.png-9990e189b48fa25236a2cc7f835e6704.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wpl5"]
+atlas = SubResource("CompressedTexture2D_vjp8g")
+region = Rect2(222, 245, 74, 58)
+
+[node name="GameStartMenu" type="CanvasLayer"]
+script = ExtResource("1_f4xs6")
+bg_music1 = ExtResource("2_kaesu")
+
+[node name="Cloud" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture_repeat = 2
+material = SubResource("ShaderMaterial_kaesu")
+position = Vector2(640, 220.5)
+scale = Vector2(2.50098, 2.16019)
+texture = SubResource("AtlasTexture_yggor")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="Control"]
+unique_name_in_owner = true
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1nim0")
+
+[node name="Title" type="TextureRect" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -298.0
+offset_top = -297.99
+offset_right = 102.0
+offset_bottom = -110.99
+grow_horizontal = 2
+scale = Vector2(1.5, 1.5)
+texture = SubResource("AtlasTexture_f4xs6")
+
+[node name="Buttons" type="MarginContainer" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -232.235
+offset_top = 24.72
+offset_right = 158.765
+offset_bottom = 102.72
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.2, 1.2)
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="Create" type="TextureButton" parent="Control/Buttons/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_7s408")
+texture_pressed = SubResource("AtlasTexture_kaesu")
+texture_hover = SubResource("AtlasTexture_hcijo")
+
+[node name="Load" type="TextureButton" parent="Control/Buttons/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_gdblg")
+texture_pressed = SubResource("AtlasTexture_a2tss")
+texture_hover = SubResource("AtlasTexture_nge5a")
+
+[node name="Coop" type="TextureButton" parent="Control/Buttons/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_ong1n")
+texture_pressed = SubResource("AtlasTexture_s4bk1")
+texture_hover = SubResource("AtlasTexture_b0q4f")
+
+[node name="Exit" type="TextureButton" parent="Control/Buttons/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_1qsuw")
+texture_pressed = SubResource("AtlasTexture_1kqso")
+texture_hover = SubResource("AtlasTexture_1wpl5")

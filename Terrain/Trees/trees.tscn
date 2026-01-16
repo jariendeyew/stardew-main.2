@@ -1,0 +1,238 @@
+[gd_scene load_steps=23 format=3 uid="uid://dygk8pjabfway"]
+
+[ext_resource type="Script" uid="uid://bcow37fgk0ios" path="res://Terrain/Trees/trees.gd" id="1_jn5ly"]
+[ext_resource type="Shader" uid="uid://ckob0m75agasy" path="res://Shader/alpha_shake.gdshader" id="1_v0i67"]
+[ext_resource type="Script" uid="uid://cw5mwkqapte2e" path="res://Bag/scene/item.gd" id="2_isdqs"]
+[ext_resource type="Texture2D" uid="uid://dlal4amqf4lcr" path="res://Art/terrain/tree1_spring.png" id="2_n43e6"]
+[ext_resource type="PackedScene" uid="uid://d1el2uw7pk51r" path="res://Component/hurt_component.tscn" id="4_7k4ie"]
+[ext_resource type="Texture2D" uid="uid://bft03am2gfd42" path="res://Art/myself/wood.png" id="4_b6jx7"]
+[ext_resource type="AudioStream" uid="uid://cukr3d48051f" path="res://AudioSystem/MurasamaHitOrganic.ogg" id="4_u25w4"]
+
+[sub_resource type="Resource" id="Resource_nrnh3"]
+resource_local_to_scene = true
+script = ExtResource("2_isdqs")
+name = "木头"
+type = 9
+description = "木材，可以合成木制物品"
+quantity = 1
+max_quantity = 999
+countable = true
+texture = ExtResource("4_b6jx7")
+price = 1
+collision_size = Vector2(0, 0)
+use_time = 0
+use_animation = 0
+auto_use = false
+damage = 0
+crit = 0.0
+knockback = 0.0
+open_trail = false
+open_texture = false
+use_type = 0
+damage_type = 0
+projectile = ""
+placeable_scene_path = ""
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q4jwp"]
+size = Vector2(16, 15)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cfih1"]
+resource_local_to_scene = true
+shader = ExtResource("1_v0i67")
+shader_parameter/alpha = 1.0
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 10.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kum66"]
+atlas = ExtResource("2_n43e6")
+region = Rect2(32, 96, 16, 32)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_beutk"]
+radius = 8.0
+height = 24.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w01pe"]
+resource_local_to_scene = true
+shader = ExtResource("1_v0i67")
+shader_parameter/alpha = 1.0
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awujc"]
+atlas = ExtResource("2_n43e6")
+region = Rect2(0, 0, 48, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wcwdd"]
+size = Vector2(51, 70)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_nrnh3"]
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xuk3v"]
+atlas = ExtResource("2_n43e6")
+region = Rect2(18, 122, 5, 5)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4rdjq"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(10, 10, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1.2, 1.5, 1)
+initial_velocity_min = -20.0
+initial_velocity_max = 20.0
+gravity = Vector3(0, 10, 0)
+scale_min = 0.5
+
+[sub_resource type="Animation" id="Animation_nbfv1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TreeBody:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -36)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TreeBody:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_skyt3"]
+resource_name = "tree_drop_left"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TreeBody:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -36), Vector2(-47, 9)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TreeBody:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -1.5708]
+}
+
+[sub_resource type="Animation" id="Animation_fd58m"]
+resource_name = "tree_drop_right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TreeBody:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -36), Vector2(47, 9)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TreeBody:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.5708]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_naxem"]
+_data = {
+&"RESET": SubResource("Animation_nbfv1"),
+&"tree_drop_left": SubResource("Animation_skyt3"),
+&"tree_drop_right": SubResource("Animation_fd58m")
+}
+
+[node name="Trees" type="StaticBody2D"]
+position = Vector2(0, -6)
+collision_layer = 2
+script = ExtResource("1_jn5ly")
+fall_objects = Array[ExtResource("2_isdqs")]([SubResource("Resource_nrnh3")])
+sfx_1 = ExtResource("4_u25w4")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_q4jwp")
+debug_color = Color(0.936497, 1.75196e-05, 0.631959, 0.42)
+
+[node name="TreeRoot" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_cfih1")
+position = Vector2(0, -3)
+texture = SubResource("AtlasTexture_kum66")
+
+[node name="HurtComponent" parent="TreeRoot" instance=ExtResource("4_7k4ie")]
+tool = 3
+max_health = 5
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="TreeRoot/HurtComponent"]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_beutk")
+debug_color = Color(0.800575, 0.420311, 1.92523e-07, 0.42)
+
+[node name="TreeBody" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_w01pe")
+position = Vector2(0, -36)
+texture = SubResource("AtlasTexture_awujc")
+
+[node name="HurtComponent" parent="TreeBody" instance=ExtResource("4_7k4ie")]
+tool = 3
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="TreeBody/HurtComponent"]
+position = Vector2(0, 39)
+shape = SubResource("CapsuleShape2D_beutk")
+debug_color = Color(0, 0.573197, 0.833045, 0.42)
+
+[node name="BodyEnterd" type="Area2D" parent="TreeBody"]
+visible = false
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TreeBody/BodyEnterd"]
+position = Vector2(0.5, -9)
+shape = SubResource("RectangleShape2D_wcwdd")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="TreeBody"]
+material = SubResource("CanvasItemMaterial_nrnh3")
+position = Vector2(0, -25)
+emitting = false
+sub_emitter = NodePath(".")
+texture = SubResource("AtlasTexture_xuk3v")
+lifetime = 2.0
+explosiveness = 0.5
+process_material = SubResource("ParticleProcessMaterial_4rdjq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_naxem")
+}

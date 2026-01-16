@@ -1,0 +1,86 @@
+[gd_scene load_steps=7 format=3 uid="uid://dq0hh3i6ikdrq"]
+
+[ext_resource type="Script" uid="uid://cats1a0q3ajmp" path="res://TimeSystem/time_system_ui.gd" id="1_pqnoy"]
+[ext_resource type="Texture2D" uid="uid://cxbecxir8p1ss" path="res://Art/loose_sprite/Cursors.zh-CN.png" id="1_rxely"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pqnoy"]
+atlas = ExtResource("1_rxely")
+region = Rect2(333, 432, 71, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hmy55"]
+atlas = ExtResource("1_rxely")
+region = Rect2(413, 333, 13, 13)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ccp0y"]
+load_path = "res://.godot/imported/Cursors.zh-CN.png-52e1a0591390852303a15753ba0fbe81.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ploao"]
+atlas = SubResource("CompressedTexture2D_ccp0y")
+region = Rect2(324, 477, 7, 19)
+
+[node name="TimeSystemUi" type="Control"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -2.84998
+offset_right = -2.84998
+grow_horizontal = 0
+script = ExtResource("1_pqnoy")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -293.0
+offset_top = 5.0
+offset_right = -222.0
+offset_bottom = 45.0
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_pqnoy")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -177.0
+offset_top = 70.0
+offset_right = -129.0
+offset_bottom = 101.0
+texture = SubResource("AtlasTexture_hmy55")
+
+[node name="Hours" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -137.0
+offset_top = 115.0
+offset_right = -76.0
+offset_bottom = 149.0
+theme_override_colors/font_color = Color(0.282353, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "06:10"
+
+[node name="Day" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -169.0
+offset_top = 22.0
+offset_right = -118.0
+offset_bottom = 56.0
+theme_override_colors/font_color = Color(0.352572, 4.42201e-07, 1.44392e-07, 1)
+theme_override_font_sizes/font_size = 24
+text = "18日"
+
+[node name="Week" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -107.0
+offset_top = 23.0
+offset_right = -35.0
+offset_bottom = 57.0
+theme_override_colors/font_color = Color(0.258824, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "星期四"
+
+[node name="Pointer" type="Sprite2D" parent="."]
+position = Vector2(-207.15, 86)
+rotation = -3.14159
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_ploao")
+offset = Vector2(0, -8)

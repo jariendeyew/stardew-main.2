@@ -1,0 +1,125 @@
+[gd_scene load_steps=23 format=3 uid="uid://cebn8gdce1lys"]
+
+[ext_resource type="Script" uid="uid://bnlpge6jqrjua" path="res://Bag/scene/ui_manager.gd" id="1_lo4i7"]
+[ext_resource type="PackedScene" uid="uid://32orsqygcno3" path="res://Bag/scene/tool_bar.tscn" id="2_e6i5f"]
+[ext_resource type="PackedScene" uid="uid://chtmy8x1ppmp7" path="res://Bag/scene/bag_ui.tscn" id="3_opcu6"]
+[ext_resource type="PackedScene" uid="uid://dlsp2a2hceqel" path="res://Bag/scene/box_ui.tscn" id="4_nrky8"]
+[ext_resource type="PackedScene" uid="uid://c1vmwewnnl80d" path="res://Global/mouse_item.tscn" id="5_nmsb7"]
+[ext_resource type="PackedScene" uid="uid://dq0hh3i6ikdrq" path="res://TimeSystem/time_system_ui.tscn" id="6_ixwsy"]
+[ext_resource type="PackedScene" uid="uid://dhpso66ln5byl" path="res://UI/get_item_tip.tscn" id="7_6kg3b"]
+[ext_resource type="PackedScene" uid="uid://dkimwoh27dhtk" path="res://UI/tool_tip.tscn" id="8_e6i5f"]
+[ext_resource type="PackedScene" uid="uid://l3pn0c05lfjq" path="res://Map/Store/store_panel.tscn" id="9_opcu6"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_cn8lv"]
+keycode = 49
+
+[sub_resource type="InputEventKey" id="InputEventKey_1wm26"]
+device = -1
+keycode = 50
+unicode = 50
+
+[sub_resource type="InputEventKey" id="InputEventKey_g5j5b"]
+device = -1
+keycode = 51
+unicode = 51
+
+[sub_resource type="InputEventKey" id="InputEventKey_ese64"]
+device = -1
+keycode = 52
+unicode = 52
+
+[sub_resource type="InputEventKey" id="InputEventKey_iarve"]
+device = -1
+keycode = 53
+unicode = 53
+
+[sub_resource type="InputEventKey" id="InputEventKey_qwy0c"]
+device = -1
+keycode = 54
+unicode = 54
+
+[sub_resource type="InputEventKey" id="InputEventKey_o70fy"]
+device = -1
+keycode = 55
+unicode = 55
+
+[sub_resource type="InputEventKey" id="InputEventKey_6ibgn"]
+device = -1
+keycode = 56
+unicode = 56
+
+[sub_resource type="InputEventKey" id="InputEventKey_1fl68"]
+device = -1
+keycode = 57
+unicode = 57
+
+[sub_resource type="InputEventKey" id="InputEventKey_t0ix5"]
+device = -1
+keycode = 48
+unicode = 48
+
+[sub_resource type="InputEventKey" id="InputEventKey_p8fwf"]
+device = -1
+keycode = 45
+unicode = 45
+
+[sub_resource type="InputEventKey" id="InputEventKey_ter55"]
+device = -1
+keycode = 61
+unicode = 61
+
+[sub_resource type="Shortcut" id="Shortcut_e1r2c"]
+events = [SubResource("InputEventKey_cn8lv"), SubResource("InputEventKey_1wm26"), SubResource("InputEventKey_g5j5b"), SubResource("InputEventKey_ese64"), SubResource("InputEventKey_iarve"), SubResource("InputEventKey_qwy0c"), SubResource("InputEventKey_o70fy"), SubResource("InputEventKey_6ibgn"), SubResource("InputEventKey_1fl68"), SubResource("InputEventKey_t0ix5"), SubResource("InputEventKey_p8fwf"), SubResource("InputEventKey_ter55")]
+
+[node name="UIManager" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_lo4i7")
+
+[node name="MouseItem" parent="." instance=ExtResource("5_nmsb7")]
+z_index = 1
+layout_mode = 1
+
+[node name="ToolBar" parent="." instance=ExtResource("2_e6i5f")]
+layout_mode = 1
+shotcut = SubResource("Shortcut_e1r2c")
+
+[node name="BagUi" parent="." node_paths=PackedStringArray("mouse_item", "box_ui") instance=ExtResource("3_opcu6")]
+layout_mode = 1
+mouse_item = NodePath("../MouseItem")
+box_ui = NodePath("../BoxUi")
+
+[node name="BoxUi" parent="." node_paths=PackedStringArray("mouse_item") instance=ExtResource("4_nrky8")]
+layout_mode = 1
+mouse_item = NodePath("../MouseItem")
+
+[node name="TimeSystemUi" parent="." instance=ExtResource("6_ixwsy")]
+layout_mode = 1
+
+[node name="get_item_tip" parent="." instance=ExtResource("7_6kg3b")]
+layout_mode = 1
+
+[node name="ToolTip" parent="." groups=["ToolTip"] instance=ExtResource("8_e6i5f")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -90.0
+offset_right = 171.075
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="StorePanel" parent="." instance=ExtResource("9_opcu6")]
+layout_mode = 1
+mouse_filter = 1

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dahtlqg66ho34"]
+
+[ext_resource type="Script" uid="uid://b5qhp4hn372iu" path="res://TimeSystem/time_color.gd" id="1_62428"]
+
+[sub_resource type="Gradient" id="Gradient_62428"]
+offsets = PackedFloat32Array(0, 0.360947, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.27487, 0.451819, 0.613958, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_e7p6q"]
+gradient = SubResource("Gradient_62428")
+
+[node name="TimeColor" type="CanvasModulate"]
+script = ExtResource("1_62428")
+init_day = 1
+init_hour = 12
+init_minite = 30
+init_week = 1
+day_night_gradient = SubResource("GradientTexture1D_e7p6q")

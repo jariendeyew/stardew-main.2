@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d1nxclm67rbhh"
+path="res://.godot/imported/Scott Lloyd Shelly - Terraria Soundtrack - 01 Overworld Day.mp3-a3b8867c91707170d6a0f2994382c228.mp3str"
+
+[deps]
+
+source_file="res://AudioSystem/Scott Lloyd Shelly - Terraria Soundtrack - 01 Overworld Day.mp3"
+dest_files=["res://.godot/imported/Scott Lloyd Shelly - Terraria Soundtrack - 01 Overworld Day.mp3-a3b8867c91707170d6a0f2994382c228.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

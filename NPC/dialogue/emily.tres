@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=5 format=3 uid="uid://ch0vf427g6cyv"]
+
+[ext_resource type="Script" uid="uid://c1m7jt0aixupj" path="res://NPC/dialogue/dialogue.gd" id="1_nmk6c"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nmk6c"]
+load_path = "res://.godot/imported/Emily_Beach.png-41f9daeaebbfd72c7a0ea97f687640f1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i87um"]
+atlas = SubResource("CompressedTexture2D_nmk6c")
+region = Rect2(0, 0, 63, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyrd5"]
+atlas = SubResource("AtlasTexture_i87um")
+
+[resource]
+script = ExtResource("1_nmk6c")
+npc_name = "Emily"
+protaits = SubResource("AtlasTexture_dyrd5")
+texts = Array[String](["大家好！", "接下来我将展示我使用Godot复刻的星露谷物语。", "本视频分为两个部分，一部分是展示，二部分是学了一年多的心得体会以及经验分享。", "如有不足，欢迎大家的指点！！", "废话不多说，直接开始吧..."])
+metadata/_custom_type_script = "uid://c1m7jt0aixupj"

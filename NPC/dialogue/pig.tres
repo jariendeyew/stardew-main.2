@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=3 format=3 uid="uid://bgt624levd4xt"]
+
+[ext_resource type="Script" uid="uid://c1m7jt0aixupj" path="res://NPC/dialogue/dialogue.gd" id="1_qh2wa"]
+[ext_resource type="Texture2D" uid="uid://dw50qytflfun7" path="res://Art/myself/精灵-0003.png" id="1_urx53"]
+
+[resource]
+script = ExtResource("1_qh2wa")
+npc_name = "猪"
+protaits = ExtResource("1_urx53")
+texts = Array[String](["接下来进入心得体会分享时刻。", "这个项目是我第一个独立完成的游戏项目，之前的学习是跟着视频教程完成的，因为我相信只有自己思考动手才会真正学会游戏开发。", "这个项目实际开发周期小于两月，期间遇到了很多难点，但也学会了很多，期间有一个月的时间我并未接触Godot。", "因为网上关于这类视频的教程太少了，如果一个功能没有现成的解决方案，我自己又想不出来，没有及时的正反馈，这将使我放弃游戏开发。", "我的Godot学习计划就是：学习基础、跟着一个完整的项目学习、独立思考开发，第一个游戏完成比做好更重要，即便那是一坨狗屎，而这就是我的第一个独立完成的游戏，一坨狗屎。", "这种RPG游戏的优点是可以无限拓展玩法，起初我构建了很多想法，想构建一个星露谷和泰拉瑞亚结合的游戏，我认为我一点点做可以完成。但是这既是优点也是缺点，新手不应该一来就立下庞大的目标，而应该小目标去完成它，以巩固所学的知识。", "Godot这类教程又少，如果一个功能做不出来，就会陷入自我怀疑的时刻，甚至放弃Godot或者游戏开发。我期间就有放弃的想法，一直觉得自己不适合做游戏，不适合编程，大脑已经恐怖思考，我甚至想过去学Blender，我认为这对大脑要求会少一些。", "但是实际上任何方面的学习，如果不加入主观思考，是很难真正学会的。并且每方面的学习都需要经过时间的沉淀，思来想去还是决定继续Godot，然后完成这个项目接下来继续其他的学习。", "以上就是我作为一个普通人（没有天赋）学习Godot一年多以来的相关分享，感谢大家的收看。"])
+metadata/_custom_type_script = "uid://c1m7jt0aixupj"

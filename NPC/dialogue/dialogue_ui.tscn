@@ -1,0 +1,91 @@
+[gd_scene load_steps=8 format=3 uid="uid://24eg0v3dxuc4"]
+
+[ext_resource type="Texture2D" uid="uid://cxbecxir8p1ss" path="res://Art/loose_sprite/Cursors.zh-CN.png" id="1_h0ugt"]
+[ext_resource type="Script" uid="uid://cp28my2aom0ca" path="res://NPC/dialogue/dialogue_ui.gd" id="1_qy66s"]
+[ext_resource type="Texture2D" uid="uid://ko6dpn05ukio" path="res://Art/portraits/Emily_Beach.png" id="2_u4agy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4agy"]
+atlas = ExtResource("1_h0ugt")
+region = Rect2(384, 373, 18, 18)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h0ugt"]
+load_path = "res://.godot/imported/Cursors.zh-CN.png-52e1a0591390852303a15753ba0fbe81.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qy66s"]
+atlas = SubResource("CompressedTexture2D_h0ugt")
+region = Rect2(583, 411, 115, 97)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbn7s"]
+atlas = ExtResource("2_u4agy")
+region = Rect2(0, 0, 63, 64)
+
+[node name="DialogueUi" type="Control"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = 401.38
+offset_bottom = 403.38
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_qy66s")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = -542.0
+offset_top = -387.0
+offset_right = 15.0
+offset_bottom = -253.0
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_u4agy")
+patch_margin_left = 5
+patch_margin_top = 6
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 269.0
+offset_top = -370.0
+offset_right = 412.0
+offset_bottom = -253.0
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_qy66s")
+patch_margin_left = 5
+patch_margin_top = 6
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = -522.0
+offset_top = -366.0
+offset_right = 251.0
+offset_bottom = -138.0
+mouse_filter = 1
+theme_override_colors/default_color = Color(0.477308, 0.148851, 1.44392e-07, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 24
+text = "你好啊，我是Emily"
+
+[node name="Portaits" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 333.0
+offset_top = -351.0
+offset_right = 490.0
+offset_bottom = -197.0
+texture = SubResource("AtlasTexture_vbn7s")
+expand_mode = 1
+
+[node name="NpcName" type="Label" parent="."]
+modulate = Color(0.440473, 0.0320333, 0, 1)
+layout_mode = 0
+offset_left = 339.0
+offset_top = -177.0
+offset_right = 490.0
+offset_bottom = -143.0
+theme_override_font_sizes/font_size = 24
+text = "Emily"
+horizontal_alignment = 1

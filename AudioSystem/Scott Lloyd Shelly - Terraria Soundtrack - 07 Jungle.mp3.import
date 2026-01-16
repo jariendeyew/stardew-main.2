@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b6inx015nddef"
+path="res://.godot/imported/Scott Lloyd Shelly - Terraria Soundtrack - 07 Jungle.mp3-36cb22de2fbb930a1c0d33f33aafb9a7.mp3str"
+
+[deps]
+
+source_file="res://AudioSystem/Scott Lloyd Shelly - Terraria Soundtrack - 07 Jungle.mp3"
+dest_files=["res://.godot/imported/Scott Lloyd Shelly - Terraria Soundtrack - 07 Jungle.mp3-36cb22de2fbb930a1c0d33f33aafb9a7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

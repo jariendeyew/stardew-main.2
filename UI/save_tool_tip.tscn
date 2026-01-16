@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyjbuv1e78jh"]
+
+[ext_resource type="Texture2D" uid="uid://1ywr5tb1tcv2" path="res://Art/loose_sprite/textBox.png" id="1_1v3ql"]
+[ext_resource type="Theme" uid="uid://1dxl5pwmi0x" path="res://UI/UI_theme.tres" id="1_8w7yf"]
+[ext_resource type="Script" uid="uid://xq8mdb1aasyp" path="res://UI/save_tool_tip.gd" id="2_vaqsf"]
+
+[node name="SaveToolTip" type="Control"]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 20.0
+offset_bottom = 316.035
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_8w7yf")
+script = ExtResource("2_vaqsf")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -854.0
+offset_bottom = -198.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+texture = ExtResource("1_1v3ql")
+region_rect = Rect2(3, 0, 189, 48)
+patch_margin_left = 16
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "确认是否要休息？"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ok" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1200, 60)
+layout_mode = 2
+theme_type_variation = &"OKButton"
+theme_override_font_sizes/font_size = 40
+text = "确认"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Cancel" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1200, 60)
+layout_mode = 2
+theme_type_variation = &"OKButton"
+theme_override_font_sizes/font_size = 40
+text = "取消"
+icon_alignment = 1
+expand_icon = true

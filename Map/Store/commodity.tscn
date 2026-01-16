@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://3if1vaoappws"]
+
+[ext_resource type="Texture2D" uid="uid://cxbecxir8p1ss" path="res://Art/loose_sprite/Cursors.zh-CN.png" id="1_oxqtm"]
+[ext_resource type="Script" uid="uid://pcniwyrc5otq" path="res://Map/Store/commodity.gd" id="2_rcq3e"]
+[ext_resource type="Texture2D" uid="uid://csngssslesssq" path="res://Art/loose_sprite/shadow.png" id="2_sptjm"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_juftk"]
+texture = ExtResource("1_oxqtm")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+region_rect = Rect2(384, 396, 15, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h70i1"]
+atlas = ExtResource("1_oxqtm")
+region = Rect2(4, 387, 8, 10)
+
+[node name="Commodity" type="PanelContainer"]
+custom_minimum_size = Vector2(578, 50)
+theme_override_styles/panel = SubResource("StyleBoxTexture_juftk")
+script = ExtResource("2_rcq3e")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Texture" type="TextureRect" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_sptjm")
+
+[node name="CName" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(0.534074, 0.0977257, 0, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "abcddfsdsdf"
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="Price" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(0.533333, 0.0980392, 0, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "80"
+
+[node name="Coin" type="TextureRect" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = SubResource("AtlasTexture_h70i1")
+stretch_mode = 5

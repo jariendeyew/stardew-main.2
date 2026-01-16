@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bf2doo6m3q0yv"]
+
+[ext_resource type="Script" uid="uid://cemm38huwl1gv" path="res://Bag/projectiles/烈焰激光.gd" id="1_acy5j"]
+
+[sub_resource type="Environment" id="Environment_acy5j"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 8.0
+
+[node name="烈焰激光" type="Node2D"]
+script = ExtResource("1_acy5j")
+
+[node name="Line2D" type="Line2D" parent="."]
+modulate = Color(5, 1, 1, 1)
+points = PackedVector2Array(0, 0, 44, 0)
+texture_mode = 2
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+collision_mask = 4
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_acy5j")

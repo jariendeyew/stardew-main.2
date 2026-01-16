@@ -1,0 +1,78 @@
+[gd_scene load_steps=13 format=3 uid="uid://b4gw6br4o6p2g"]
+
+[ext_resource type="Texture2D" uid="uid://dxf5y3rpsuxa8" path="res://Art/maps/springobjects.es-ES.png" id="1_07uk3"]
+[ext_resource type="Script" uid="uid://bmkjn4voxyuhr" path="res://Terrain/Rocks/rock.gd" id="1_y8ahi"]
+[ext_resource type="Script" uid="uid://cw5mwkqapte2e" path="res://Bag/scene/item.gd" id="2_h3hfy"]
+[ext_resource type="PackedScene" uid="uid://d1el2uw7pk51r" path="res://Component/hurt_component.tscn" id="2_yb5wq"]
+[ext_resource type="Shader" uid="uid://ckob0m75agasy" path="res://Shader/alpha_shake.gdshader" id="3_nbqnk"]
+[ext_resource type="AudioStream" uid="uid://bw1kttwwey53u" path="res://AudioSystem/MurasamaHitInorganic.ogg" id="4_1bgmn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52em5"]
+atlas = ExtResource("1_07uk3")
+region = Rect2(95, 256, 16, 16)
+
+[sub_resource type="Resource" id="Resource_imd6q"]
+resource_local_to_scene = true
+script = ExtResource("2_h3hfy")
+name = "石头"
+type = 9
+description = "这是石头，可以敲碎你的脑袋"
+quantity = 1
+max_quantity = 999
+countable = true
+texture = SubResource("AtlasTexture_52em5")
+price = 1
+collision_size = Vector2(0, 0)
+use_time = 0
+use_animation = 0
+auto_use = false
+damage = 0
+crit = 0.0
+knockback = 0.0
+open_trail = false
+open_texture = false
+use_type = 0
+damage_type = 0
+projectile = ""
+placeable_scene_path = ""
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x2qtv"]
+shader = ExtResource("3_nbqnk")
+shader_parameter/alpha = 1.0
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 10.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpc0u"]
+atlas = ExtResource("1_07uk3")
+region = Rect2(288, 288, 15, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_of0xs"]
+radius = 9.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k05bc"]
+radius = 8.0
+
+[node name="Rock" type="StaticBody2D"]
+position = Vector2(0, 8)
+script = ExtResource("1_y8ahi")
+fall_objects = Array[ExtResource("2_h3hfy")]([SubResource("Resource_imd6q")])
+sfx1 = ExtResource("4_1bgmn")
+
+[node name="body" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_x2qtv")
+position = Vector2(0, -8)
+texture = SubResource("AtlasTexture_gpc0u")
+
+[node name="HurtComponent" parent="body" instance=ExtResource("2_yb5wq")]
+visible = true
+tool = 4
+max_health = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="body/HurtComponent"]
+shape = SubResource("CircleShape2D_of0xs")
+debug_color = Color(0.826844, 0.166276, 0.872785, 0.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_k05bc")

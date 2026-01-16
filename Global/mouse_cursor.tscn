@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0ck2d750itap"]
+
+[ext_resource type="Script" uid="uid://c4pnoxwb7n2ba" path="res://Global/mouse_cursor.gd" id="1_50y6f"]
+[ext_resource type="Texture2D" uid="uid://cxbecxir8p1ss" path="res://Art/loose_sprite/Cursors.zh-CN.png" id="2_scipb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7mxw"]
+atlas = ExtResource("2_scipb")
+region = Rect2(0, 0, 8, 10)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xums7"]
+load_path = "res://.godot/imported/Cursors.zh-CN.png-52e1a0591390852303a15753ba0fbe81.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwbyo"]
+atlas = SubResource("CompressedTexture2D_xums7")
+region = Rect2(32, 0, 10, 10)
+
+[node name="MouseCursor" type="Node"]
+script = ExtResource("1_50y6f")
+default_cursor = SubResource("AtlasTexture_k7mxw")
+mouse_entered_cursor = SubResource("AtlasTexture_hwbyo")

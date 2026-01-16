@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://c0bafwvsoblfs"]
+
+[ext_resource type="Script" uid="uid://cw5mwkqapte2e" path="res://Bag/scene/item.gd" id="1_wgu5y"]
+[ext_resource type="Texture2D" uid="uid://bft03am2gfd42" path="res://Art/myself/wood.png" id="2_fuq2j"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_wgu5y")
+name = "木头"
+type = 9
+description = "木材，可以合成木制物品"
+quantity = 1
+max_quantity = 999
+countable = true
+texture = ExtResource("2_fuq2j")
+damage = 0
+projectile = 0

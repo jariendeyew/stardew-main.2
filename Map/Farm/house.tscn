@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxmd4lplyinij"]
+
+[ext_resource type="Texture2D" uid="uid://n0h6c4jlig5h" path="res://Art/buildings/Snipaste_2025-01-21_22-05-51.png" id="1_aj8xq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lam52"]
+atlas = ExtResource("1_aj8xq")
+region = Rect2(0, 0, 355, 352)
+
+[node name="House" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_lam52")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-2.38419e-07, 1.19209e-07)
+scale = Vector2(2.51295, 2.51295)
+polygon = PackedVector2Array(-28.2537, 17.5093, -28, 25, -5, 25, -5, 33, -35, 33, -35, -7, 35, -7, 35, 33, 20, 33, 20, 26, 28, 26, 27.8557, 17.5093)

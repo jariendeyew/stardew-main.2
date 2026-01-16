@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvjfk83xlmkjo"]
+
+[ext_resource type="Script" uid="uid://blxi5f6gvgn8s" path="res://Component/tilemap_component.gd" id="1_0dndm"]
+
+[node name="TilemapComponent" type="Node"]
+script = ExtResource("1_0dndm")

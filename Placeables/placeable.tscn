@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://dme28i6jhso4p"]
+
+[ext_resource type="Script" uid="uid://dupkrto24l5lc" path="res://Placeables/placeable.gd" id="1_1hetn"]
+[ext_resource type="PackedScene" uid="uid://dao3kk2e08sjp" path="res://Placeables/placeable_footprint.tscn" id="1_l7opm"]
+[ext_resource type="Shader" uid="uid://og8861olisdx" path="res://Shader/placeable.gdshader" id="3_8fmgw"]
+[ext_resource type="PackedScene" uid="uid://8qd0ndqf6qko" path="res://FallObjects/loot_table.tscn" id="3_cx5vd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qtibf"]
+resource_local_to_scene = true
+shader = ExtResource("3_8fmgw")
+shader_parameter/PREVIEW = false
+shader_parameter/PLACEABLE = true
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8fmgw"]
+radius = 8.0
+height = 38.0
+
+[node name="Placeable" type="StaticBody2D"]
+script = ExtResource("1_1hetn")
+
+[node name="PlaceableFootprint" parent="." instance=ExtResource("1_l7opm")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_qtibf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_8fmgw")
+
+[node name="LootTable" parent="." instance=ExtResource("3_cx5vd")]

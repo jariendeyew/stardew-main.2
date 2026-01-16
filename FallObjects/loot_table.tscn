@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://8qd0ndqf6qko"]
+
+[ext_resource type="Script" uid="uid://owng6j4fy7rw" path="res://FallObjects/loot_table.gd" id="1_8gecs"]
+
+[node name="LootTable" type="Node2D"]
+script = ExtResource("1_8gecs")

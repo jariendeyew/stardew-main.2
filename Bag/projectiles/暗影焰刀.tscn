@@ -1,0 +1,64 @@
+[gd_scene load_steps=12 format=3 uid="uid://bnjqve1g51umd"]
+
+[ext_resource type="Texture2D" uid="uid://b06v5j1fglag4" path="res://Art/myself/Projectile_497.png" id="1_b6sgr"]
+[ext_resource type="Script" uid="uid://6luhs0djmr3d" path="res://Bag/projectiles/暗影焰刀.gd" id="1_cvfe0"]
+[ext_resource type="PackedScene" uid="uid://y6h28idjda41" path="res://Component/hit_component.tscn" id="2_n1pqg"]
+[ext_resource type="Shader" uid="uid://bb3r11oh4y470" path="res://Shader/暗影焰刀.gdshader" id="3_k4pxs"]
+[ext_resource type="Texture2D" uid="uid://dqfjpljnxpqbl" path="res://Map/Town/light.tres" id="5_cqj05"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_k4pxs"]
+frequency = 0.006
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cqj05"]
+noise = SubResource("FastNoiseLite_k4pxs")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cqj05"]
+shader = ExtResource("3_k4pxs")
+shader_parameter/val = 0.5
+shader_parameter/offset = Vector2(0, -1)
+shader_parameter/noise_texture1 = SubResource("NoiseTexture2D_cqj05")
+
+[sub_resource type="Environment" id="Environment_k4pxs"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n1pqg"]
+size = Vector2(14, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvfe0"]
+size = Vector2(14, 30)
+
+[node name="暗影焰刀" type="CharacterBody2D"]
+scale = Vector2(0.8, 0.8)
+collision_layer = 4
+collision_mask = 26
+script = ExtResource("1_cvfe0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_b6sgr")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_cqj05")
+position = Vector2(7.15256e-07, 0.500001)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_b6sgr")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Sprite2D2"]
+environment = SubResource("Environment_k4pxs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_n1pqg")
+
+[node name="HitComponent" parent="." instance=ExtResource("2_n1pqg")]
+visible = false
+current_item_type = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitComponent"]
+shape = SubResource("RectangleShape2D_cvfe0")
+debug_color = Color(0.857636, 0.146653, 0.81142, 0.42)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.314667, 0, 0.59, 1)
+texture = ExtResource("5_cqj05")

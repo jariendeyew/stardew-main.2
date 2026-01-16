@@ -1,0 +1,51 @@
+[gd_scene load_steps=10 format=3 uid="uid://du31rko1y8osj"]
+
+[ext_resource type="Texture2D" uid="uid://dufnb3pv4jpna" path="res://Art/myself/Projectile_502.png" id="1_35f25"]
+[ext_resource type="Texture2D" uid="uid://bjo3iet0b7006" path="res://Art/myself/Projectile_250.png" id="1_l6mxe"]
+[ext_resource type="Script" uid="uid://bma5vo6rtx3v1" path="res://Bag/projectiles/rainbow_cat.gd" id="1_wqxfh"]
+[ext_resource type="Script" uid="uid://j0twew4wo5yl" path="res://Bag/projectiles/cat_line_2d.gd" id="3_p1wxw"]
+[ext_resource type="PackedScene" uid="uid://y6h28idjda41" path="res://Component/hit_component.tscn" id="5_p1wxw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wqxfh"]
+
+[sub_resource type="Environment" id="Environment_ps1ix"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 3.09
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p1wxw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_squ6m"]
+
+[node name="RainbowCat" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 16
+script = ExtResource("1_wqxfh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+texture = ExtResource("1_35f25")
+
+[node name="Line2D" type="Line2D" parent="Sprite2D"]
+modulate = Color(2, 2, 2, 1)
+top_level = true
+material = SubResource("ShaderMaterial_wqxfh")
+points = PackedVector2Array(57, 29, 57, 38, 47, 41, 37, 44, 18, 42, 5, 38, 1, 3)
+texture = ExtResource("1_l6mxe")
+texture_mode = 2
+joint_mode = 2
+script = ExtResource("3_p1wxw")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Sprite2D/Line2D"]
+environment = SubResource("Environment_ps1ix")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_p1wxw")
+debug_color = Color(0.802268, 0.418857, 0, 0.42)
+
+[node name="HitComponent" parent="." instance=ExtResource("5_p1wxw")]
+current_item_type = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitComponent"]
+shape = SubResource("CircleShape2D_squ6m")
+debug_color = Color(0.884309, 0.157534, 0.720053, 0.42)

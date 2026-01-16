@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://dtkx2801amx5q"]
+
+[ext_resource type="PackedScene" uid="uid://csjs1cydmsgje" path="res://Terrain/Grass/grass.tscn" id="1_5i3qr"]
+[ext_resource type="Shader" uid="uid://dfdqhvcj3vibh" path="res://Shader/grass_shake.gdshader" id="2_fkllb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sqrvi"]
+resource_local_to_scene = true
+shader = ExtResource("2_fkllb")
+shader_parameter/skew = 0.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ksryb"]
+load_path = "res://.godot/imported/grass.png-34e85707d54966abe8ee0f3e07cd7d6a.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smnlh"]
+atlas = SubResource("CompressedTexture2D_ksryb")
+region = Rect2(15, 0, 14, 20)
+
+[node name="Grass" instance=ExtResource("1_5i3qr")]
+
+[node name="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_sqrvi")
+texture = SubResource("AtlasTexture_smnlh")

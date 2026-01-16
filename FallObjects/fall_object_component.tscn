@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://imyi7gr30s73"]
+
+[ext_resource type="Script" uid="uid://bivggcax3xh53" path="res://FallObjects/fall_object_component.gd" id="1_7v8lu"]
+[ext_resource type="Texture2D" uid="uid://csngssslesssq" path="res://Art/loose_sprite/shadow.png" id="2_bm7wn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kcypa"]
+radius = 20.0
+
+[node name="FallObjectComponent" type="Node2D"]
+script = ExtResource("1_7v8lu")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_kcypa")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.431373)
+position = Vector2(0, 2)
+texture = ExtResource("2_bm7wn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

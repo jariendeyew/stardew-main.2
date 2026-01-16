@@ -1,0 +1,72 @@
+[gd_scene load_steps=13 format=3 uid="uid://csjs1cydmsgje"]
+
+[ext_resource type="Script" uid="uid://cnrv2daca3w6q" path="res://Terrain/Grass/grass.gd" id="1_a8vtm"]
+[ext_resource type="Texture2D" uid="uid://cpninxdvdke3t" path="res://Art/terrain/grass.png" id="1_nw2k5"]
+[ext_resource type="Shader" uid="uid://dfdqhvcj3vibh" path="res://Shader/grass_shake.gdshader" id="1_ovkm6"]
+[ext_resource type="Script" uid="uid://cw5mwkqapte2e" path="res://Bag/scene/item.gd" id="2_p6w28"]
+[ext_resource type="Texture2D" uid="uid://dxf5y3rpsuxa8" path="res://Art/maps/springobjects.es-ES.png" id="3_w5nph"]
+[ext_resource type="PackedScene" uid="uid://d1el2uw7pk51r" path="res://Component/hurt_component.tscn" id="4_uv480"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cmp1"]
+atlas = ExtResource("3_w5nph")
+region = Rect2(48, 512, 16, 16)
+
+[sub_resource type="Resource" id="Resource_alvd6"]
+resource_local_to_scene = true
+script = ExtResource("2_p6w28")
+name = "纤维"
+type = 9
+description = "可以吃"
+quantity = 1
+max_quantity = 999
+countable = true
+texture = SubResource("AtlasTexture_4cmp1")
+collision_size = Vector2(0, 0)
+use_time = 0
+use_animation = 0
+auto_use = false
+damage = 0
+crit = 0.0
+knockback = 0.0
+open_trail = false
+open_texture = false
+use_type = 0
+damage_type = 0
+projectile = ""
+placeable_scene_path = ""
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5ggmy"]
+resource_local_to_scene = true
+shader = ExtResource("1_ovkm6")
+shader_parameter/skew = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8kk0e"]
+atlas = ExtResource("1_nw2k5")
+region = Rect2(0, 0, 15, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r3lys"]
+size = Vector2(16, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tmawq"]
+size = Vector2(16, 20)
+
+[node name="Grass" type="Area2D"]
+scale = Vector2(1.5, 1.5)
+collision_layer = 2
+script = ExtResource("1_a8vtm")
+fall_objects = Array[ExtResource("2_p6w28")]([SubResource("Resource_alvd6")])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_5ggmy")
+texture = SubResource("AtlasTexture_8kk0e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_r3lys")
+
+[node name="HurtComponent" parent="." instance=ExtResource("4_uv480")]
+tool = 6
+max_health = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
+shape = SubResource("RectangleShape2D_tmawq")
+debug_color = Color(0.914497, 8.45176e-05, 0.716074, 0.42)

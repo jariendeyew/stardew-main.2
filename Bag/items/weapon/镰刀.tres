@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://0up2rccig0vd"]
+
+[ext_resource type="Script" uid="uid://cw5mwkqapte2e" path="res://Bag/scene/item.gd" id="1_xjy2a"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ltyex"]
+load_path = "res://.godot/imported/weapons.png-feb007db46970b0b56aeceb74b481626.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcxcn"]
+atlas = SubResource("CompressedTexture2D_ltyex")
+region = Rect2(32, 128, 16, 16)
+
+[resource]
+script = ExtResource("1_xjy2a")
+name = "镰刀"
+type = 6
+description = "可以割草，还有杀死死神"
+quantity = 1
+max_quantity = 999
+countable = false
+texture = SubResource("AtlasTexture_jcxcn")
+price = 1
+collision_size = Vector2(0, 0)
+use_time = 0
+use_animation = 0
+auto_use = false
+damage = 1
+crit = 0.0
+knockback = 0.0
+open_trail = true
+open_texture = true
+use_type = 0
+damage_type = 0
+projectile = ""
+placeable_scene_path = ""

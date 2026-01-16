@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccvunviarnauk"]
+
+[ext_resource type="Script" uid="uid://ced802u5418dj" path="res://Weapons/jian_qi.gd" id="1_mm2yx"]
+
+[node name="JianQi" type="Line2D"]
+rotation = -2.12057
+points = PackedVector2Array(-315.449, 170.27, 0, 0)
+script = ExtResource("1_mm2yx")

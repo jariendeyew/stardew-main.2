@@ -1,0 +1,83 @@
+[gd_scene load_steps=6 format=3 uid="uid://duek3vens6bia"]
+
+[ext_resource type="PackedScene" uid="uid://dahtlqg66ho34" path="res://TimeSystem/time_color.tscn" id="1_1whlm"]
+[ext_resource type="PackedScene" uid="uid://bxkoq0eq1cdwh" path="res://Map/Farm/farm.tscn" id="2_5y2uu"]
+[ext_resource type="PackedScene" uid="uid://cebn8gdce1lys" path="res://UI/ui_manager.tscn" id="2_b5tta"]
+[ext_resource type="PackedScene" uid="uid://c2lmyuwdhija3" path="res://Player/player.tscn" id="2_mg2r4"]
+[ext_resource type="PackedScene" uid="uid://dra6nxj18tsen" path="res://Player/player_camera.tscn" id="3_5y2uu"]
+
+[node name="MainScene" type="Node2D"]
+y_sort_enabled = true
+
+[node name="TimeColor" parent="." instance=ExtResource("1_1whlm")]
+
+[node name="Drops" type="Node2D" parent="."]
+
+[node name="Levels" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Farm" parent="Levels" instance=ExtResource("2_5y2uu")]
+
+[node name="Player" parent="." instance=ExtResource("2_mg2r4")]
+position = Vector2(2505, 360)
+metadata/_edit_group_ = true
+
+[node name="PlayerCamera" parent="Player" instance=ExtResource("3_5y2uu")]
+
+[node name="MainCanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UIManager" parent="MainCanvasLayer" instance=ExtResource("2_b5tta")]
+
+[node name="PopUp" type="Control" parent="MainCanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 45.0
+offset_top = 2.0
+offset_right = 45.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Save" type="Button" parent="MainCanvasLayer"]
+offset_left = 1225.0
+offset_top = 272.0
+offset_right = 1265.0
+offset_bottom = 303.0
+text = "存档"
+
+[node name="Load" type="Button" parent="MainCanvasLayer"]
+offset_left = 1225.0
+offset_top = 316.0
+offset_right = 1265.0
+offset_bottom = 347.0
+text = "加载"
+
+[node name="Seven" type="Button" parent="MainCanvasLayer"]
+offset_left = 1200.0
+offset_top = 363.0
+offset_right = 1272.0
+offset_bottom = 397.0
+text = "天数加一"
+
+[node name="Night" type="Button" parent="MainCanvasLayer"]
+offset_left = 1228.0
+offset_top = 415.0
+offset_right = 1268.0
+offset_bottom = 446.0
+text = "晚上"
+
+[node name="Noon" type="Button" parent="MainCanvasLayer"]
+offset_left = 1230.0
+offset_top = 460.0
+offset_right = 1270.0
+offset_bottom = 491.0
+text = "白天"
+
+[connection signal="pressed" from="MainCanvasLayer/Save" to="MainCanvasLayer/UIManager" method="_on_save_pressed"]
+[connection signal="pressed" from="MainCanvasLayer/Load" to="MainCanvasLayer/UIManager" method="_on_load_pressed"]
+[connection signal="pressed" from="MainCanvasLayer/Seven" to="MainCanvasLayer/UIManager" method="_on_seven_pressed"]
+[connection signal="pressed" from="MainCanvasLayer/Night" to="MainCanvasLayer/UIManager" method="_on_night_pressed"]
+[connection signal="pressed" from="MainCanvasLayer/Noon" to="MainCanvasLayer/UIManager" method="_on_noon_pressed"]

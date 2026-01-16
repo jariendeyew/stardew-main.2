@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://dhpso66ln5byl"]
+
+[ext_resource type="Script" uid="uid://dmsabdxv6f088" path="res://UI/get_item_tip.gd" id="1_7m4i3"]
+[ext_resource type="Texture2D" uid="uid://cxbecxir8p1ss" path="res://Art/loose_sprite/Cursors.zh-CN.png" id="1_dbboy"]
+[ext_resource type="Texture2D" uid="uid://6ipidmoyomtl" path="res://Art/myself/Projectile_16.png" id="2_qjweq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjweq"]
+atlas = ExtResource("1_dbboy")
+region = Rect2(293, 360, 36, 24)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7m4i3"]
+load_path = "res://.godot/imported/Cursors.zh-CN.png-52e1a0591390852303a15753ba0fbe81.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4bxo"]
+atlas = SubResource("CompressedTexture2D_7m4i3")
+region = Rect2(317, 360, 12, 24)
+
+[node name="get_item_tip" type="Control"]
+layout_mode = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = 200.0
+offset_right = 20.0
+offset_bottom = 200.0
+grow_vertical = 2
+script = ExtResource("1_7m4i3")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 21.0
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_qjweq")
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 61.0
+offset_top = -1.0
+offset_right = 99.0
+offset_bottom = 20.0
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_h4bxo")
+patch_margin_top = 6
+patch_margin_right = 5
+patch_margin_bottom = 6
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 52.0
+offset_bottom = 52.0
+texture = ExtResource("2_qjweq")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0.203922, 0.0941176, 0, 1)
+layout_mode = 0
+offset_left = 63.0
+offset_top = 21.0
+offset_right = 103.0
+offset_bottom = 44.0
+text = "中文中文中文"
+vertical_alignment = 1

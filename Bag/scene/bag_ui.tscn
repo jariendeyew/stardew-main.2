@@ -1,0 +1,186 @@
+[gd_scene load_steps=6 format=3 uid="uid://chtmy8x1ppmp7"]
+
+[ext_resource type="Script" uid="uid://w7fuo5h5u0bb" path="res://Bag/scene/bag_ui.gd" id="1_2c0y5"]
+[ext_resource type="Texture2D" uid="uid://ckodt4w002mr6" path="res://Art/loose_sprite/MobileAtlas_manually_made.de-DE.png" id="1_5a1ln"]
+[ext_resource type="PackedScene" uid="uid://bofnshmt1vb4g" path="res://Bag/scene/slot.tscn" id="2_noll4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iuq0k"]
+atlas = ExtResource("1_5a1ln")
+region = Rect2(107, 80, 15, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myt65"]
+atlas = ExtResource("1_5a1ln")
+region = Rect2(41, 22.0755, 8, 10.9245)
+
+[node name="BagUi" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 160.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2c0y5")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+offset_left = -332.0
+offset_top = -90.0
+offset_right = -165.0
+offset_bottom = -39.0
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_iuq0k")
+region_rect = Rect2(0, 0, 15, 15)
+patch_margin_left = 3
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 3
+
+[node name="BagUi" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -112.0
+offset_right = 330.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BagUi"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="TabBar" type="TabBar" parent="BagUi/VBoxContainer"]
+layout_mode = 2
+current_tab = 0
+tab_count = 1
+tab_0/tooltip = "打开背包"
+tab_0/icon = SubResource("AtlasTexture_myt65")
+tab_0/disabled = true
+
+[node name="MarginContainer" type="MarginContainer" parent="BagUi/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="GridContainer" type="GridContainer" parent="BagUi/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 12
+
+[node name="Slot" parent="BagUi/VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_noll4")]
+layout_mode = 2
+
+[node name="Slot2" parent="BagUi/VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_noll4")]
+layout_mode = 2
+
+[node name="Slot3" parent="BagUi/VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_noll4")]
+layout_mode = 2
+
+[node name="Slot4" parent="BagUi/VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_noll4")]
+layout_mode = 2
+
+[node name="Slot5" parent="BagUi/VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_noll4")]
+layout_mode = 2
+
+[node name="Slot6" parent="BagUi/VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_noll4")]
+layout_mode = 2
+
+[node name="Slot7" parent="BagUi/VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_noll4")]
+layout_mode = 2
+
+[node name="Slot8" parent="BagUi/VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_noll4")]
+layout_mode = 2
+
+[node name="Slot9" parent="BagUi/VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_noll4")]
+layout_mode = 2
+
+[node name="Slot10" parent="BagUi/VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_noll4")]
+layout_mode = 2
+
+[node name="Slot11" parent="BagUi/VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_noll4")]
+layout_mode = 2
+
+[node name="Slot12" parent="BagUi/VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_noll4")]
+layout_mode = 2
+
+[node name="Slot13" parent="BagUi/VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_noll4")]
+layout_mode = 2
+
+[node name="Slot14" parent="BagUi/VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_noll4")]
+layout_mode = 2
+
+[node name="Slot15" parent="BagUi/VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_noll4")]
+layout_mode = 2
+
+[node name="Slot16" parent="BagUi/VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_noll4")]
+layout_mode = 2
+
+[node name="Slot17" parent="BagUi/VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_noll4")]
+layout_mode = 2
+
+[node name="Slot18" parent="BagUi/VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_noll4")]
+layout_mode = 2
+
+[node name="Slot19" parent="BagUi/VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_noll4")]
+layout_mode = 2
+
+[node name="Slot20" parent="BagUi/VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_noll4")]
+layout_mode = 2
+
+[node name="Slot21" parent="BagUi/VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_noll4")]
+layout_mode = 2
+
+[node name="Slot22" parent="BagUi/VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_noll4")]
+layout_mode = 2
+
+[node name="Slot23" parent="BagUi/VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_noll4")]
+layout_mode = 2
+
+[node name="Slot24" parent="BagUi/VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_noll4")]
+layout_mode = 2
+
+[node name="Slot25" parent="BagUi/VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_noll4")]
+layout_mode = 2
+
+[node name="Slot26" parent="BagUi/VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_noll4")]
+layout_mode = 2
+
+[node name="Slot27" parent="BagUi/VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_noll4")]
+layout_mode = 2
+
+[node name="Slot28" parent="BagUi/VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_noll4")]
+layout_mode = 2
+
+[node name="Slot29" parent="BagUi/VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_noll4")]
+layout_mode = 2
+
+[node name="Slot30" parent="BagUi/VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_noll4")]
+layout_mode = 2
+
+[node name="Slot31" parent="BagUi/VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_noll4")]
+layout_mode = 2
+
+[node name="Slot32" parent="BagUi/VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_noll4")]
+layout_mode = 2
+
+[node name="Slot33" parent="BagUi/VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_noll4")]
+layout_mode = 2
+
+[node name="Slot34" parent="BagUi/VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_noll4")]
+layout_mode = 2
+
+[node name="Slot35" parent="BagUi/VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_noll4")]
+layout_mode = 2
+
+[node name="Slot36" parent="BagUi/VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_noll4")]
+layout_mode = 2

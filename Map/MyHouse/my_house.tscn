@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://ddcb4c55w7jp8"]
+
+[ext_resource type="Texture2D" uid="uid://bt4rbmc7ifxr5" path="res://Art/myself/Snipaste_2025-01-22_10-49-46.jpg" id="1_3fqav"]
+[ext_resource type="Texture2D" uid="uid://ccddbjk7xn725" path="res://Art/tile_sheets/furniture.zh-CN.png" id="2_tyq47"]
+[ext_resource type="Script" uid="uid://cybbyov4lcndh" path="res://Map/MyHouse/bed.gd" id="2_wapgt"]
+[ext_resource type="PackedScene" uid="uid://dfg8gg0uu4d2a" path="res://Map/change_scene_area.tscn" id="3_tyq47"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dadgl"]
+size = Vector2(70, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8k6r"]
+atlas = ExtResource("2_tyq47")
+region = Rect2(480, 1114, 32, 37)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r8k6r"]
+size = Vector2(14, 14)
+
+[node name="MyHouse" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(651.585, 374.745)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_3fqav")
+metadata/_edit_group_ = true
+
+[node name="Wall" type="StaticBody2D" parent="Sprite2D"]
+collision_layer = 32
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Wall"]
+polygon = PackedVector2Array(-116, 219, -77, 219, -71.4625, 198.137, 198.537, 195.637, 201.037, 113.137, 123.537, 110.637, 123.537, 63.1375, 198.537, 60.6375, 203.537, -86.8625, 158.537, -84.3625, 161.037, -36.8625, 83.5375, -36.8625, 83.5375, -84.3625, 41.0375, -86.8625, 43.5375, -1.86249, -33.9625, -1.86249, -33.9625, -86.8625, -118.963, -86.8625, -121.463, -6.86249, -191.463, -6.86249, -191.463, 190.637, -113.963, 193.137, -117, 205, -133.963, 215.637, -211.463, 200.637, -210, -219, 221, -216, 218.537, 228.137, -128, 230)
+
+[node name="Bed" type="Area2D" parent="Sprite2D"]
+collision_layer = 2
+script = ExtResource("2_wapgt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Bed"]
+position = Vector2(160, 145.5)
+shape = SubResource("RectangleShape2D_dadgl")
+
+[node name="BedSprite" type="Sprite2D" parent="Sprite2D"]
+z_index = 1
+position = Vector2(159, 142.375)
+scale = Vector2(2.375, 1.97973)
+texture = SubResource("AtlasTexture_r8k6r")
+
+[node name="SpawnPos" type="Node2D" parent="."]
+position = Vector2(651.585, 374.745)
+
+[node name="Marker2D" type="Marker2D" parent="SpawnPos" groups=["SpawnPosition"]]
+position = Vector2(-37, 54)
+
+[node name="ChangeSceneArea" parent="." instance=ExtResource("3_tyq47")]
+position = Vector2(651.585, 374.745)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChangeSceneArea"]
+position = Vector2(-38, 79)
+shape = SubResource("RectangleShape2D_r8k6r")
+
+[node name="MapSize" type="Marker2D" parent="."]
+position = Vector2(1281.09, 719.661)

@@ -1,0 +1,57 @@
+[gd_scene load_steps=12 format=3 uid="uid://b83j8v6qovhxd"]
+
+[ext_resource type="Texture2D" uid="uid://cyfd18grsc0v7" path="res://Art/tile_sheets/crops.png" id="1_hva5u"]
+[ext_resource type="PackedScene" uid="uid://d1el2uw7pk51r" path="res://Component/hurt_component.tscn" id="1_mtshs"]
+[ext_resource type="Script" uid="uid://lwtpojt6rmjl" path="res://Placeables/Crops/甜瓜.gd" id="1_o2o25"]
+[ext_resource type="Shader" uid="uid://dfdqhvcj3vibh" path="res://Shader/grass_shake.gdshader" id="2_6hqco"]
+[ext_resource type="Script" uid="uid://cw5mwkqapte2e" path="res://Bag/scene/item.gd" id="2_c64ct"]
+[ext_resource type="Resource" uid="uid://bqc5s82km364t" path="res://Bag/items/crops/甜瓜.tres" id="3_nd2ap"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c64ct"]
+resource_local_to_scene = true
+shader = ExtResource("2_6hqco")
+shader_parameter/skew = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hqco"]
+atlas = ExtResource("1_hva5u")
+region = Rect2(128, 96, 112, 32)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o2o25"]
+shader = ExtResource("2_6hqco")
+shader_parameter/skew = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7mprr"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c64ct"]
+size = Vector2(16, 20)
+
+[node name="甜瓜" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_o2o25")
+fall_objects = Array[ExtResource("2_c64ct")]([ExtResource("3_nd2ap")])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_c64ct")
+position = Vector2(0, -7)
+texture = SubResource("AtlasTexture_6hqco")
+hframes = 7
+frame = 6
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 9
+
+[node name="AreaCollision" type="CollisionShape2D" parent="Area2D"]
+material = SubResource("ShaderMaterial_o2o25")
+shape = SubResource("RectangleShape2D_7mprr")
+
+[node name="HurtComponent" parent="." instance=ExtResource("1_mtshs")]
+visible = true
+tool = 6
+max_health = 1
+
+[node name="HurtCollision" type="CollisionShape2D" parent="HurtComponent"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_c64ct")
+debug_color = Color(0.861548, 0.000648225, 0.871804, 0.42)

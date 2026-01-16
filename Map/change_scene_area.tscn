@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfg8gg0uu4d2a"]
+
+[ext_resource type="Script" uid="uid://e0vqswavb8hj" path="res://Map/change_scene_area.gd" id="1_vmd6t"]
+
+[node name="ChangeSceneArea" type="Area2D"]
+collision_layer = 64
+script = ExtResource("1_vmd6t")
