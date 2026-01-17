@@ -9,25 +9,10 @@ region = Rect2(368, 304, 16, 16)
 
 [resource]
 script = ExtResource("1_0rfj6")
-name = "甜瓜种子"
 type = 9
 description = "7天生长，可以种出粉红的甜瓜"
-quantity = 1
-max_quantity = 999
 countable = true
 texture = SubResource("AtlasTexture_micd4")
 price = 80
-collision_size = Vector2(0, 0)
-use_time = 0
-use_animation = 0
-auto_use = false
-damage = 0
-crit = 0.0
-knockback = 0.0
-open_trail = false
-open_texture = false
-use_type = 0
-damage_type = 0
-projectile = ""
 placeable_scene_path = "res://Placeables/Crops/甜瓜.tscn"
 metadata/_custom_type_script = "uid://cw5mwkqapte2e"

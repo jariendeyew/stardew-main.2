@@ -1,41 +1,32 @@
 extends State
 
-@export var player:Player
-@export var anim:AnimationPlayer
-@export var speed:int = 100
+@export var player: Player
+@export var anim: AnimationPlayer
+# 移除本地 speed，用 player.speed 统一（防冲突）
 
-var direction:Vector2
+var direction: Vector2 = Vector2.ZERO
 
-func _enter():
-	print("Move")
-	pass# 进入这个状态时要做什么（比如播放动画）
-	
-func _exit():
+func _enter() -> void:
+	pass
+
+func _exit() -> void:
 	anim.stop()
-	pass# 离开这个状态时要做什么
-	
-func _physics_update(delta):
+
+func _physics_update(delta: float) -> void:
 	direction = player.direction
+	if direction != Vector2.ZERO:
+		player.last_direction = direction
 	_update_animation()
-	
-	if direction != Vector2.ZERO:#记录Move->Idle的方向
-		player.player_direction = direction
-
-	if player.direction == Vector2.ZERO:
+	if direction == Vector2.ZERO:
 		transition_to.emit("Idle")
-		
-	player.velocity = player.direction * speed 
-	player.move_and_slide()	
+		return
+	# 用 player.speed（Inspector 调100正常）
+	player.velocity = direction * player.speed
+	player.move_and_slide()
 
-func _update_animation():
-	#停下来的时候direction为0,所以Idle下面条件永远不会执行
-	#为了避免这种情况，Move状态需要一个单独的direction
-	if direction == Vector2.UP:
-		anim.play("move_up")
-	elif direction == Vector2.DOWN:
-		anim.play("move_down")
-	elif direction == Vector2.LEFT:
-		anim.play("move_left")
-	elif direction == Vector2.RIGHT:
-		anim.play("move_right")
-	#anim["parameters/Move/blend_position"] = player.player_direction
+func _update_animation() -> void:
+	match direction:
+		Vector2.UP: anim.play("move_up")
+		Vector2.DOWN: anim.play("move_down")
+		Vector2.LEFT: anim.play("move_left")
+		Vector2.RIGHT: anim.play("move_right")

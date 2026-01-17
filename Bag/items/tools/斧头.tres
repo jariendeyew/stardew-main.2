@@ -9,24 +9,6 @@ region = Rect2(80, 160, 16, 16)
 
 [resource]
 script = ExtResource("1_tim7o")
-name = "斧头"
 type = 3
 description = "可以砍树"
-quantity = 1
-max_quantity = 999
-countable = false
 texture = SubResource("AtlasTexture_1lwy8")
-price = 1
-collision_size = Vector2(0, 0)
-use_time = 0
-use_animation = 0
-auto_use = false
-damage = 0
-crit = 0.0
-knockback = 0.0
-open_trail = false
-open_texture = false
-use_type = 0
-damage_type = 0
-projectile = ""
-placeable_scene_path = ""

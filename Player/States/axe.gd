@@ -1,37 +1,39 @@
 extends State
 
-@export var player:Player
-@export var anim:AnimationPlayer
-@export var tool_collistion:CollisionShape2D
+@export var player: Player
+@export var anim: AnimationPlayer
+@export var speed: int = 100
 
-var i:int
+@onready var direction: Vector2 = Vector2.ZERO
 
-func _enter():
-	i=0
-	tool_collistion.disabled = false
+func _enter() -> void:
+	# 进入状态：淡入动画（丝滑）
+	var tween = create_tween()
+	tween.tween_property(anim, "modulate:a", 1.0, 0.2)  # 从透明淡入，可删
 	_update_animation()
-	
-func _exit():
+
+func _exit() -> void:
 	anim.stop()
-	tool_collistion.disabled = true
-	
-func _physics_update(delta):
-	i+=1
-	if i == 20 : #让碰撞在20帧后执行
-		tool_collistion.disabled = false
-	if !anim.is_playing():
+
+func _physics_update(delta: float) -> void:
+	direction = player.direction
+	if direction != Vector2.ZERO:
+		player.last_direction = direction  # 记录方向（兼容Idle）
+
+	_update_animation()
+
+	if direction == Vector2.ZERO:
 		transition_to.emit("Idle")
-	
-func _update_animation():
-	if player.player_direction == Vector2.UP:
-		anim.play("axe_up")
-		tool_collistion.position = Vector2(0,-18)
-	elif player.player_direction == Vector2.DOWN:
-		anim.play("axe_down")
-		tool_collistion.position = Vector2(0,2)
-	elif player.player_direction == Vector2.LEFT:
-		anim.play("axe_left")
-		tool_collistion.position = Vector2(-10,-12)
-	elif player.player_direction == Vector2.RIGHT:
-		anim.play("axe_right")
-		tool_collistion.position = Vector2(10,-12)
+		return
+
+	# 缓动速度（防急停）
+	player.velocity = player.velocity.move_toward(direction * speed, speed * 5 * delta)
+	player.move_and_slide()
+
+func _update_animation() -> void:
+	match direction:
+		Vector2.UP: anim.play("move_up")
+		Vector2.DOWN: anim.play("move_down")
+		Vector2.LEFT: anim.play("move_left")
+		Vector2.RIGHT: anim.play("move_right")
+		_: anim.stop()  # 零方向停
